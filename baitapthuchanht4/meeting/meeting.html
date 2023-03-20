@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+     #wrapper {
+            display: flex;
+            justify-content: center;
+        }
+        
+        #container {
+            display: flex;
+            justify-content: space-between;
+            width: 1440px;
+        }
+        
+        #center {
+            width: 910px;
+        }
+        
+        #right {
+            width: 440px;
+            align-items: center;
+            flex-direction: column;
+            justify-content: left;
+        }
+        
+        #left {
+            width: 90px;
+            height: 870px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        #left_above {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        #below {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .item {
+            width: 32px;
+            margin-top: 50px;
+        }
+        
+        #setting {
+            margin-top: 36px;
+        }
+        
+        #center_above {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .notice {
+            position: absolute;
+            border: 1 solid #ffc970;
+            background-color: palevioletred;
+            right: 12px;
+            top: 0px;
+            font-size: 14px;
+            padding: 7px;
+            color: white;
+        }
+        
+        .avatar {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            flex-direction: column;
+            align-items: left;
+        }
+        
+        .background {
+            justify-content: space-around;
+        }
+        
+
+body {
+    margin: 0;
+}
+
+.center-title {
+    font-size: 30px;
+    width: 200px;
+    display: inline-block;
+    margin: 0;
+}
+
+.title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#record {
+    width: 9.82%;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    color: red;
+    border: 2px solid currentColor;
+    border-radius: 30px;
+    justify-content: space-around;
+}
+
+.calender {
+    display: flex;
+    flex-direction: row;
+    margin: 35px 0;
+    align-items: center;
+    color: #5c5e62;
+}
+
+#internal {
+    width: 9%;
+    height: 36px;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #e34d73;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.calender p {
+    margin: 0;
+    padding: 0 12px;
+    letter-spacing: 1px;
+}
+#center,#right,#left,#right-top,#right-bottom{
+    border: 1px solid #eff1f3;
+    border-collapse: collapse;
+}
+#right-top{
+    height: 30%;
+    margin: 0;
+    padding:7.4% 7.4% 3.7% 7.4%;
+}
+#right-bottom{
+    height: 64.4%;
+    padding: 3.5% 7.4%;
+}
+#right-top .title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+.right-top-item{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 135%;
+    margin-bottom: 4.27%;
+}
+.right-top-item-left{
+    display:inline-flex;
+    flex-direction: row;
+    align-items: center;
+}
+.right-top-item-right{
+    display:inline-flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    height: inherit;
+    width: fit-content;
+}
+.right-top-item-right-item{
+    margin:0 10%;
+    color: rgb(110 119 135);
+    width: 200%;
+}
+.user-chatting{
+    height: 18%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    
+}
+.user-chatting-name{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    width: 100%;   
+}
+.user-chatting-name-time{
+    color:#bbbec5;
+}
+.user-chatting-name-info{
+    font-size: 120%;
+    font-weight: bold;
+    margin: 0% 3%;
+}
+.user-chatting-content{
+    margin-left: 13%;
+    width: 87%;
+    height: 50%;
+    display: inline-flex;
+    justify-content: left;
+    align-items: center;
+    background-color: #f8f9fa;
+}
+.typing{
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+}
+#typing-box{
+    box-sizing: border-box;
+    border-color: transparent;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #f3f4f6;
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 3% 1% 3% 4%;
+    width: 85%;
+}
+#typing-box:focus{
+    border-color: transparent;
+}
+
+.big-screen {
+    position: relative;
+}
+
+.big-screen-img {
+    border-radius: 10px;
+    width: 100%;
+    position: static;
+}
+
+.big-screen-name {
+    position: absolute;
+    display: inline-flex;
+    margin: 0;
+    height: 51px;
+    padding: 0 10px;
+    background-color: #717275;
+    opacity: 0.8;
+    border-radius: 5px;
+    left: 3%;
+    top: 2%;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 100%;
+    color: whitesmoke;
+}
+
+.big-screen-mic {
+    position: absolute;
+    right: 3%;
+    top: 2%;
+    width: 4.27%;
+}
+
+.small-screen {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.small-screen-item {
+    display: inline-flex;
+    width: 30%;
+    align-items: center;
+    position: relative;
+}
+
+.small-screen-item-img {
+    border-radius: 10px;
+    position: static;
+}
+
+.small-screen-item-name {
+    display: inline-flex;
+    width: fit-content;
+    height: 17.3%;
+    position: absolute;
+    margin: 0;
+    left: 3%;
+    top: 5%;
+    background-color: #313131;
+    opacity: 0.6;
+    font-size: 100%;
+    justify-content: space-around;
+    align-items: center;
+    color: whitesmoke;
+    padding: 0 10px;
+    border-radius: 5px;
+}
+
+.small-screen-item-mic {
+    position: absolute;
+    right: 3%;
+    top: 5%;
+    width: 10%;
+    opacity: 0.9;
+    width: 38px;
+    height: 38px;
+}
+.call-section{
+    margin: 30px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-bottom: 0;
+}
+.call-section-item{
+    margin: 0 1%;
+    width: 5.5%;
+}
+#end-meeting{
+    margin: 0 1%;
+    padding: 18px;
+    font-size: 120%;
+    color:aliceblue;
+    background-color: RGB(242 33 40);
+    border-radius: 5px;
+}
+</style>
+<body>
+    <div id="wrapper">
+        <div id="container">
+            <div id="left">
+                <div id="left_above">
+                    <img class="item" src="logo.png" alt="">
+                    <img class="item" src="" alt="">
+                    <img class="item" src="cam.png" alt="">
+                    <img class="item" src="chatting.png" alt="">
+                    <img class="item" src="user.png" alt="">
+                </div>
+
+                <div id="below">
+                    <img src="avatar.png" width="44" alt="">
+                    <img id="setting" src="setting.png" width="44" alt="">
+                </div>
+            </div>
+            <div id="center">
+                <div class="title">
+                    <h4 s>Meeting title</h4>
+                    <div id="record">
+                        <i class="fa-solid fa-circle" style="color: inherit;"></i>
+                        <p style="color:currentColor">12:00</p>
+                    </div>
+                </div>
+                <div class="calender">
+                    <div id="internal">
+                        <i class="fa-solid fa-circle-user" style="color:white"></i>
+                        <span style="color: white;font-size: 14px;">Internal</span>
+
+                    </div>
+                    <p style="border-right: 1px solid #5c5e62 ;"> <i class="fa-solid fa-calendar-days"></i> Sep 02, 2022</p>
+                    <p>08:00 - 09:00 AM</p>
+                </div>
+                <div class="big-screen">
+                    <img src="img_big.png" alt="main cam" class="big-screen-img">
+                    <p class="big-screen-name"><i class="fa-solid fa-circle" style="font-size: 10px;margin: 0 5px;color:#1dd75b"></i> Benjamin Crawford</p>
+                    <img src="mic_color.png" alt="" class="big-screen-mic">
+                </div>
+                <div class="small-screen">
+                    <div class="small-screen-item">
+                        <img src="img2.png" alt="" width="100%" class="small-screen-item-img">
+                        <p class="small-screen-item-name"><i class="fa-solid fa-circle" style="font-size: 10px;margin: 0 5px;color:#1dd75b"></i> Christan Scott</p>
+                        <img src="mic_grey_color.png" alt="" class="small-screen-item-mic">
+                    </div>
+                    <div class="small-screen-item">
+                        <img src="img1.png" alt="" width="100%" class="small-screen-item-img">
+                        <p class="small-screen-item-name"><i class="fa-solid fa-circle" style="font-size: 10px;margin: 0 5px;color:#1dd75b"></i> Deborah Chu</p>
+                        <img src="mic_grey_color.png" alt="" class="small-screen-item-mic">
+                    </div>
+                    <div class="small-screen-item">
+                        <img src="img.png" alt="" width="100%" class="small-screen-item-img">
+                        <p class="small-screen-item-name"><i class="fa-solid fa-circle" style="font-size: 10px;margin: 0 5px;color:#1dd75b"></i> Jordan Nieves</p>
+                        <img src="mic_grey_color.png" alt="" class="small-screen-item-mic">
+                    </div>
+                </div>
+                <div class="call-section">
+                    <img src="mic_grey_color.png" alt="" class="call-section-item">
+                    <img src="cam_color.png" alt="" class="call-section-item">
+                    <img src="speaker_grey_color.png" alt="" class="call-section-item">
+                    <p  id = "end-meeting">End meeting</p>
+                    <img src="Button 2179.png" alt="" class="call-section-item">
+                    <img src="share.png" alt="" class="call-section-item">
+                    <img src="extend.png" alt="" class="call-section-item">
+                </div>
+            </div>
+            <div id="right">
+                <div id="right-top">
+                    <div class="title">
+                        <div style="display: inline-flex;width: fit-content;align-items: center;">
+                            <h1 style="margin: 0;">Participants</h1>
+                            <span style="display: inline-flex;padding:10px;margin-left:10px;color:#ea7b97;background-color:#fdf2f4;border-radius: 50% ;">4</span>
+                        </div>
+                        <div style="display: inline-flex;margin: 0;padding: 2.3%;border:2px solid #ea7a96;color:#ea7a96;height: fit-content;justify-content: space-around;align-items: center;width: 12%;font-size: 100%;border-radius: 5px;"> <i class="fa-solid fa-plus" style="color: currentColor;" ></i> <span style="color: currentColor;">Add</span></div>
+                    </div>
+                    <div class="right-top-item">
+                        <div class="right-top-item-left">
+                            <img src="avatar_1.png" alt="" style="width: 15%;">
+                            <span style="display: inline-block;height: 20%;width: 300px;margin-left: 5%;">Benjamin Crawford</span>
+                        </div>
+                        <div class="right-top-item-right">
+                            <i class="fa-solid fa-ellipsis" style="margin:0 10%;color: rgb(110 119 135);" ></i>
+                            <img src="cam_small.png" alt="" width="25px"class ="right-top-item-right-item">
+                            <img src="mic1.png" class ="right-top-item-right-item" width="25px" alt="" >         
+                            
+                            
+                        </div>
+                    </div>
+                    <div class="right-top-item">
+                        <div class="right-top-item-left">
+                            <img src="avatar_2.png" alt="" style="width: 15%;">
+                            <span style="display: inline-block;height: 20%;width: 300px;margin-left: 5%;">Christian Scott</span>
+                        </div>
+                        <div class="right-top-item-right">
+                            <i class="fa-solid fa-ellipsis" style="margin:0 10%;color: rgb(110 119 135);" ></i>
+                            <img src="cam_small.png" alt="" class ="right-top-item-right-item">
+                            <img src="mic1.png" class ="right-top-item-right-item"  alt="" >         
+                            
+                            
+                        </div>
+                    </div>
+                    <div class="right-top-item">
+                        <div class="right-top-item-left">
+                            <img src="avatar_3.png" alt="" style="width: 15%;">
+                            <span style="display: inline-block;height: 20%;width: 300px;margin-left: 5%;">Deborah Chu</span>
+                        </div>
+                        <div class="right-top-item-right">
+                            <i class="fa-solid fa-ellipsis" style="margin:0 10%;color: rgb(110 119 135);" ></i>
+                            <img src="cam_small.png" alt="" class ="right-top-item-right-item">
+                            <img src="mic2.png" class ="right-top-item-right-item"  alt="" >         
+                            
+                            
+                        </div>
+                    </div>
+                    <div class="right-top-item">
+                        <div class="right-top-item-left">
+                            <img src="avatar_4.png" alt="" style="width: 15%;">
+                            <span style="display: inline-block;height: 20%;width: 300px;margin-left: 5%;">Jordan Nieves</span>
+                        </div>
+                        <div class="right-top-item-right">
+                            <i class="fa-solid fa-ellipsis" style="margin:0 10%;color: rgb(110 119 135);" ></i>
+                            <img src="cam_small.png" alt="" class ="right-top-item-right-item">
+                            <img src="mic1.png" class ="right-top-item-right-item"  alt="" >         
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+                <div id="right-bottom">
+                    <h1>Chat</h1>
+                    <div class="user-chatting">
+                        <div class = "user-chatting-name">
+                            <img src="avatar 1326.png" alt="" style="width: 10%;">
+                            <p class ="user-chatting-name-info" >Deborah Chu</p>
+                            <p class="user-chatting-name-time">1:12 PM</p>
+                        </div>
+                        <div class = "user-chatting-content">
+                            <p style="margin: 5%;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae!</p>
+                        </div>
+                    </div>
+                    <div class="user-chatting">
+                        <div class = "user-chatting-name">
+                            <img src="avatar 1327.png" alt="" style="width: 10%;">
+                            <p class ="user-chatting-name-info" >Jordan Nieves</p>
+                            <p class="user-chatting-name-time">1:12 PM</p>
+                        </div>
+                        <div class = "user-chatting-content">
+                            <p style="margin: 5%;">Eiusmod laborum culpa est magna cilum sint in elit proident </p>
+                        </div>
+                    </div>
+                    <div class="user-chatting">
+                        <div class = "user-chatting-name">
+                            <img src="avatar 1328.png" alt="" style="width: 10%;">
+                            <p class ="user-chatting-name-info" >Benjamin Crawford</p>
+                            <p class="user-chatting-name-time">1:12 PM</p>
+                        </div>
+                        <div class = "user-chatting-content" style="background-color: #fdf2f4;">
+                            <p style="margin: 5%;"><i class="fa-solid fa-face-smile"></i><i class="fa-solid fa-face-smile"></i><i class="fa-solid fa-face-smile"></i></p>
+                        </div>
+                    </div>
+                    <div class="user-chatting">
+                        <div class = "user-chatting-name">
+                            <img src="avatar 1329.png" alt="" style="width: 10%;">
+                            <p class ="user-chatting-name-info" >Christan Scott</p>
+                            <p class="user-chatting-name-time">1:12 PM</p>
+                        </div>
+                        <div class = "user-chatting-content" >
+                            <p style="margin: 5%;">Typing...</p>
+                        </div>
+                    </div>
+                    <div class="typing">
+                        <input type="text" name="" id="typing-box" placeholder="Add type">
+                        <i class="fa-solid fa-face-smile" style="position: absolute;right: 18%;bottom: 30%;font-size: 125%;"></i>
+                        <img src="send.png" alt="">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+</body>
+</html>
